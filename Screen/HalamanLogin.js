@@ -34,6 +34,12 @@ render() {
         <View
             behavior="padding"
             style={styles.Wrapper}>
+
+        <View style={{alignItems:"center", justifyContent:'flex-start', marginTop:35}}>
+            <Image style={{width: 325, height: 175}}
+                resizeMode="contain"
+                source={{ uri: 'https://brandmark.io/logo-rank/random/bp.png' }}/>
+            </View>
         
         <TextInput
             placeholder='E-Mail'
@@ -54,44 +60,14 @@ render() {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity onPress = {() => {this.props.navigation.navigate('LupaKataSandi');}} activeOpacity={0.7}>
+        <TouchableOpacity onPress = {() => {this.props.navigation.navigate('spam');}} activeOpacity={0.7}>
             <Text style ={{fontSize:13, marginTop: 25, color:'#00BFFF', marginLeft:180}}>Lupa Kata Sandi?</Text>
         </TouchableOpacity>
         
-        <TouchableOpacity onPress = {() => {this.props.navigation.navigate('');}} activeOpacity={0.7} style = {styles.button}>
+        <TouchableOpacity onPress = {() => {this.props.navigation.navigate('Dashboard');}} activeOpacity={0.7} style = {styles.button}>
                 <Text style ={styles.buttonText}>Masuk</Text>
         </TouchableOpacity>
 
-        <View style = {{marginTop:30}}>
-            <Text>
-                Atau
-            </Text>
-        </View>
-
-        <TouchableOpacity style={styles.GooglePlusStyle} activeOpacity={0.5}>
-            <Image
-                source={{uri:'https://aboutreact.com/wp-content/uploads/2018/08/google-plus.png',}}
-                style={styles.ImageIconStyle}/>
-                <View style={styles.SeparatorLine} />
-                <Text style={styles.TextStyle}> Masuk dengan Google </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5}>
-            <Image
-                source={{uri:'https://aboutreact.com/wp-content/uploads/2018/08/facebook.png.png',}}
-                style={styles.ImageIconStyle}/>
-                <View style={styles.SeparatorLine} />
-                <Text style={styles.TextStyle}> Masuk dengan Facebook </Text>
-        </TouchableOpacity>
-        
-        <View style = {{alignSelf:'center',flexDirection:'row', justifyContent:'flex-end',bottom:0, marginTop:65}}>
-            <Text>
-                Belum Punya Akun ? 
-            </Text>
-            <TouchableOpacity onPress = {() => {this.props.navigation.navigate('HalamanRegistrasi');}} activeOpacity={0.7}>
-                <Text style ={{marginLeft:5, fontSize:14, color:'#00BFFF', justifyContent:'center'}}>Daftar</Text>
-            </TouchableOpacity>
-        </View>
         </View>
         )}}
         const styles = StyleSheet.create({
