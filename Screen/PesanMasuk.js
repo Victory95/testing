@@ -28,7 +28,7 @@ export default class PesanMasuk extends React.Component {
 
             <TouchableOpacity
                 activeOpacity={0.7}
-                onPress={this.clickHandler}
+                onPress = {() => {this.props.navigation.navigate('KirimPesan');}}
                 style={styles.TouchableOpacityStyle}>
                     <Image
                         //We are making FAB using TouchableOpacity with an image

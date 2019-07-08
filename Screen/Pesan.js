@@ -31,7 +31,7 @@ export default class Pesan extends React.Component {
                             <Text style={styles.TextMenuButton}> Kirim Pesan </Text>
                         </TouchableOpacity>
                         
-                        <TouchableOpacity style={styles.MenuButton} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
+                        <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('PesanTerkirim');}} activeOpacity={0.5}>
                             <Image
                                 source={require("../Asset/image/hide.png")}
                                 style={styles.ImageMenuButton}/>

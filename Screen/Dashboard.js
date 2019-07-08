@@ -26,80 +26,82 @@ export default class Dashboard extends React.Component {
                 {require("../Asset/image/background.jpg")}
                 style={styles.container}>
 
-                    <Image
-                        source={{uri: 'https://aboutreact.com/wp-content/uploads/2018/07/logo.png',}}
-                        //borderRadius style will help us make the Round Shape Image
-                        style={styles.ProfilImage}
-                        />
-                        <Text style={styles.text}>Nama Siswa</Text>
+                    <TouchableOpacity onPress = {() => {this.props.navigation.navigate('HalamanProfil');}} activeOpacity={0.9}>
+                        <Image
+                            source={{uri: 'https://aboutreact.com/wp-content/uploads/2018/07/logo.png',}}
+                            //borderRadius style will help us make the Round Shape Image
+                            style={styles.ProfilImage}
+                            />
+                    </TouchableOpacity>
+
+                    <Text style={styles.text}>Nama Siswa</Text>
                     
-                        <IndicatorViewPager style={{ height: 325}} indicator={this._renderDotIndicator()}>
+                    <IndicatorViewPager style={{ height: 325}} indicator={this._renderDotIndicator()}>
 
-                            <View>
-                            <View style = {{flexDirection:'row', justifyContent:'center'}}>
-                                <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('Absensi');}} activeOpacity={0.5}>
-                                        <Image
-                                            source={require("../Asset/image/hide.png")}
-                                            style={styles.ImageMenuButton}/>
-                                            <Text style={styles.TextMenuButton}> Absensi </Text>
-                                    </TouchableOpacity>
+                    <View>
+                        <View style = {{flexDirection:'row', justifyContent:'center'}}>
+                            <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('Absensi');}} activeOpacity={0.5}>
+                                <Image
+                                    source={require("../Asset/image/hide.png")}
+                                    style={styles.ImageMenuButton}/>
+                                <Text style={styles.TextMenuButton}> Absensi </Text>
+                            </TouchableOpacity>
                                 
-                                <TouchableOpacity style={styles.MenuButton} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
-                                    <Image
-                                        source={require("../Asset/image/hide.png")}
-                                        style={styles.ImageMenuButton}/>
-                                        <Text style={styles.TextMenuButton}> Jadwal Mengajar </Text>
-                                </TouchableOpacity>
+                            <TouchableOpacity style={styles.MenuButton} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
+                                <Image
+                                    source={require("../Asset/image/hide.png")}
+                                    style={styles.ImageMenuButton}/>
+                                <Text style={styles.TextMenuButton}> Jadwal Mengajar </Text>
+                            </TouchableOpacity>
                                 
-                                <TouchableOpacity style={styles.MenuButton} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
-                                    <Image
-                                        source={require("../Asset/image/hide.png")}
-                                        style={styles.ImageMenuButton}/>
-                                        <Text style={styles.TextMenuButton}> Agenda </Text>
-                                </TouchableOpacity>
-                            </View>
+                            <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('Agenda');}} activeOpacity={0.5}>
+                                <Image
+                                    source={require("../Asset/image/hide.png")}
+                                    style={styles.ImageMenuButton}/>
+                                <Text style={styles.TextMenuButton}> Agenda </Text>
+                            </TouchableOpacity>
+                        </View>
 
-                            <View style = {{flexDirection:'row', justifyContent:'center', marginTop:-20}}>
-                                <TouchableOpacity style={styles.MenuButton} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
-                                        <Image
-                                            source={require("../Asset/image/hide.png")}
-                                            style={styles.ImageMenuButton}/>
-                                            <Text style={styles.TextMenuButton}> Daftar Kegiatan </Text>
-                                    </TouchableOpacity>
-                                
-                                <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('Pesan');}} activeOpacity={0.5}>
-                                    <Image
-                                        source={require("../Asset/image/hide.png")}
-                                        style={styles.ImageMenuButton}/>
-                                        <Text style={styles.TextMenuButton}> Pesan </Text>
-                                </TouchableOpacity>
-                                
-                                <TouchableOpacity style={styles.MenuButton} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
-                                    <Image
-                                        source={require("../Asset/image/hide.png")}
-                                        style={styles.ImageMenuButton}/>
-                                        <Text style={styles.TextMenuButton}> Penilaian </Text>
-                                </TouchableOpacity>
-                            </View>
-                            </View>  
+                        <View style = {{flexDirection:'row', justifyContent:'center', marginTop:-20}}>
+                            <TouchableOpacity style={styles.MenuButton} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
+                                <Image
+                                    source={require("../Asset/image/hide.png")}
+                                    style={styles.ImageMenuButton}/>
+                                <Text style={styles.TextMenuButton}> Daftar Kegiatan </Text>
+                            </TouchableOpacity>
+                            
+                            <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('Pesan');}} activeOpacity={0.5}>
+                                <Image
+                                    source={require("../Asset/image/hide.png")}
+                                    style={styles.ImageMenuButton}/>
+                                <Text style={styles.TextMenuButton}> Pesan </Text>
+                            </TouchableOpacity>
+                            
+                            <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('Penilaian');}} activeOpacity={0.5}>
+                                <Image
+                                    source={require("../Asset/image/hide.png")}
+                                    style={styles.ImageMenuButton}/>
+                                <Text style={styles.TextMenuButton}> Penilaian </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>  
 
-                            <View style = {{flexDirection:'row', marginTop:170}}>                               
-                                <TouchableOpacity style={styles.MenuButton2} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
-                                    <Image
-                                        source={require("../Asset/image/hide.png")}
-                                        style={styles.ImageMenuButton}/>
-                                        <Text style={styles.TextMenuButton}> Kalender </Text>
-                                </TouchableOpacity>
-                                
-                                <TouchableOpacity style={styles.MenuButton} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
-                                    <Image
-                                        source={require("../Asset/image/hide.png")}
-                                        style={styles.ImageMenuButton}/>
-                                        <Text style={styles.TextMenuButton}> Silabus </Text>
-                                </TouchableOpacity>
-                            </View>          
-                        </IndicatorViewPager>           
-
+                        <View style = {{flexDirection:'row', marginTop:170}}>                               
+                            <TouchableOpacity style={styles.MenuButton2} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
+                                <Image
+                                    source={require("../Asset/image/hide.png")}
+                                    style={styles.ImageMenuButton}/>
+                                <Text style={styles.TextMenuButton}> Kalender </Text>
+                            </TouchableOpacity>
+                            
+                            <TouchableOpacity style={styles.MenuButton} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
+                                <Image
+                                    source={require("../Asset/image/hide.png")}
+                                    style={styles.ImageMenuButton}/>
+                                <Text style={styles.TextMenuButton}> Silabus </Text>
+                            </TouchableOpacity>
+                </View>          
+                </IndicatorViewPager>           
                 </ImageBackground>
     );
   }

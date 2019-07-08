@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { CustomPicker } from 'react-native-custom-picker'
 
-export default class spam extends React.Component {
+export default class KirimPesan extends React.Component {
 
   static navigationOptions = 
   {
@@ -50,7 +50,7 @@ export default class spam extends React.Component {
             },
           ],
 
-          kelas = [
+          kelas : [
             {
               color:'#000000',
               kelas:'X.A',
@@ -98,7 +98,7 @@ export default class spam extends React.Component {
             }
           ],
 
-          murid = [
+          murid : [
             {
               color:'#000000',
               murid:'murid 1',
@@ -146,7 +146,7 @@ export default class spam extends React.Component {
             }
           ],
 
-          mapel = [
+          mapel : [
             {
               color:'#000000',
               mapel:'Ilmu Hitam',
@@ -218,7 +218,7 @@ export default class spam extends React.Component {
                         headerTemplate={this.renderHeader}
                         />
                 )
-        }else if(this.state.visibleMurid === true){
+        }else if(this.state.visibleMapel === true){
             return(
                 <CustomPicker style={{marginTop:15}}
                     placeholder={'Pilih Mata Pelajaran'}
@@ -245,7 +245,7 @@ export default class spam extends React.Component {
           getLabel={item => item.penerima}
           fieldTemplate={this.renderField}
           optionTemplate={this.renderOption}
-          headerTemplate={this.renderHeader}
+          headerTemplate={this.renderHeaderPenerima}
         />
         <CustomPicker style={{marginTop:15}}
           placeholder={'Pilih Kelas'}
@@ -253,7 +253,7 @@ export default class spam extends React.Component {
           getLabel={item => item.kelas}
           fieldTemplate={this.renderField}
           optionTemplate={this.renderOption}
-          headerTemplate={this.renderHeader}
+          headerTemplate={this.renderHeaderKelas}
         />
         <CustomPicker style={{marginTop:15}}
           placeholder={'Pilih Murid'}
@@ -261,7 +261,7 @@ export default class spam extends React.Component {
           getLabel={item => item.murid}
           fieldTemplate={this.renderField}
           optionTemplate={this.renderOption}
-          headerTemplate={this.renderHeader}
+          headerTemplate={this.renderHeaderMurid}
         />
         <CustomPicker style={{marginTop:15}}
           placeholder={'Pilih Mata Pelajaran'}
@@ -269,16 +269,40 @@ export default class spam extends React.Component {
           getLabel={item => item.mapel}
           fieldTemplate={this.renderField}
           optionTemplate={this.renderOption}
-          headerTemplate={this.renderHeader}
+          headerTemplate={this.renderHeaderMapel}
         />
       </View>
     )
   }
 
-  renderHeader() {
+  renderHeaderPenerima() {
     return (
       <View style={styles.headerFooterContainer}>
         <Text style= {{fontSize:18}}>Pilih Penerima</Text>
+      </View>
+    )
+  }
+
+  renderHeaderKelas() {
+    return (
+      <View style={styles.headerFooterContainer}>
+        <Text style= {{fontSize:18}}>Pilih Kelas</Text>
+      </View>
+    )
+  }
+
+  renderHeaderMurid() {
+    return (
+      <View style={styles.headerFooterContainer}>
+        <Text style= {{fontSize:18}}>Pilih Murid</Text>
+      </View>
+    )
+  }
+
+  renderHeaderMapel() {
+    return (
+      <View style={styles.headerFooterContainer}>
+        <Text style= {{fontSize:18}}>Pilih Mata Pelajaran</Text>
       </View>
     )
   }
@@ -315,7 +339,7 @@ export default class spam extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    borderColor: 'grey',
+    borderColor: '#00BFFF',
     borderWidth: 1,
     padding: 5
   },

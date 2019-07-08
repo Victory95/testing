@@ -70,6 +70,7 @@ render() {
 
         </View>
         )}}
+        
         const styles = StyleSheet.create({
 
         inputFieldEmail: {
