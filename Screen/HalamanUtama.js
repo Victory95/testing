@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image,Text,TouchableOpacity,View, StyleSheet, ScrollView, Alert} from 'react-native';
 import RNPicker from "rn-modal-picker";
+import KESStyles from "../Asset/styles/Styles"
 
 export default class HalamanUtama extends React.Component 
 {
@@ -67,175 +68,83 @@ export default class HalamanUtama extends React.Component
       ErrorStatus : true,
     };
   }
-  _selectedValue(index, name) {
-    this.setState({ selectedText: name });
-  }
 
-  onEnterText = () =>{
-    const {selectedText} = this.state;
-    if(selectedText == ""){
-        this.setState({selectedText : selectedText, ErrorStatus : true}) ;
-   }else{
-        this.props.navigation.navigate('HalamanLogin');
-   }
-  }
+      _selectedValue(index, name) {
+        this.setState({ selectedText: name });
+      }
+
+      onEnterText = () =>{
+        const {selectedText} = this.state;
+        if(selectedText == ""){
+            this.setState({selectedText : selectedText, ErrorStatus : true}) ;
+        }else{
+            this.props.navigation.navigate('HalamanLogin');
+        }
+      }
  
- buttonClickListener = () =>{
-       const { selectedText }  = this.state ;
-       if (selectedText == ""){
-          Alert.alert("Please enter the text to proceed");
-       }else{
-          this.props.navigation.navigate('HalamanLogin');
-       }
-   }
+      buttonClickListener = () =>{
+          const { selectedText }  = this.state ;
+          if (selectedText == ""){
+              Alert.alert("Silahkan Pilih Sekolah Terlebih Dahulu");
+          }else{
+              this.props.navigation.navigate('HalamanLogin');
+          }
+        }
  
 
-    render() 
-    {
+    render() {
         return (  
-        <ScrollView style = {{flex:1,backgroundColor:'#fff'}}>
-            <View style={{flex:1, alignItems:"center", justifyContent:'flex-start', marginTop:35}}>
-              <Image style={{width: 250, height: 250}}
-                    resizeMode="contain"
-                    source={{ uri: 'https://brandmark.io/logo-rank/random/bp.png' }}/>
+            <ScrollView style = {KESStyles.halamanUtama.scrollView}>
+                <View style={KESStyles.halamanUtama.scrollContainer}>
+                    <Image style={KESStyles.halamanUtama.imageCointainer}
+                        resizeMode="contain"
+                        source={require("../Asset/image/gkes.png")}
+                        />
+                    <Text style={KESStyles.halamanUtama.textContainer}>
+                        Temukan Sekolahmu Disini
+                    </Text>
+                    <RNPicker
+                        dataSource={this.state.dataSource}
+                        dummyDataSource={this.state.dataSource}
+                        defaultValue={false}
+                        pickerTitle={"Daftar Nama Sekolah"}
+                        showSearchBar={true}
+                        disablePicker={false}
+                        changeAnimation={"none"}
+                        searchBarPlaceHolder={"Pilih Sekolah Anda"}
+                        showPickerTitle={true}
+                        onChangeText={selectedText=> this.onEnterText(selectedText)}
+                        searchBarContainerStyle={this.props.searchBarContainerStyle}
+                        pickerStyle={KESStyles.halamanUtama.pickerContainer}
+                        selectedLabel={this.state.selectedText}
+                        placeHolderLabel={this.state.placeHolderText}
+                        selectLabelTextStyle={KESStyles.halamanUtama.selectLabelText}
+                        placeHolderTextStyle={KESStyles.halamanUtama.placeHolderText}
+                        dropDownImageStyle={KESStyles.halamanUtama.dropdownContainer}
+                        dropDownImage={require("../Asset/image/ic_drop_down.png")}
+                        selectedValue={(index, name) => this._selectedValue(index, name)}
+                        />
+                          { this.state.ErrorStatus == false ? (
+                                      <Text style={KESStyles.halamanUtama.errorMessage}>
+                                        Pilih Sekolah Terlebih Dahulu
+                                      </Text>
+                                      ) : null  }
+                  
+                    <TouchableOpacity onPress = {this.buttonClickListener}
+                        activeOpacity={0.7} style = {KESStyles.halamanUtama.buttonContainer}>
+                            <Text style ={KESStyles.halamanUtama.buttonTextContaier}>
+                              Selanjutnya
+                            </Text>
+                    </TouchableOpacity>  
+                  
+                    <Text style = {KESStyles.halamanUtama.copyrightText}>
+                        2018 Khronos Education System
+                    </Text>
 
-                  <Text style={Styles.textStyle}>
-                      Temukan Sekolahmu Disini
-                  </Text>
-              
-                  <RNPicker
-                      dataSource={this.state.dataSource}
-                      dummyDataSource={this.state.dataSource}
-                      defaultValue={false}
-                      pickerTitle={"Daftar Nama Sekolah"}
-                      showSearchBar={true}
-                      disablePicker={false}
-                      changeAnimation={"none"}
-                      searchBarPlaceHolder={"Pilih Sekolah Anda"}
-                      showPickerTitle={true}
-                      onChangeText={selectedText=> this.onEnterText(selectedText)}
-                      searchBarContainerStyle={this.props.searchBarContainerStyle}
-                      pickerStyle={Styles.pickerStyle}
-                      selectedLabel={this.state.selectedText}
-                      placeHolderLabel={this.state.placeHolderText}
-                      selectLabelTextStyle={Styles.selectLabelTextStyle}
-                      placeHolderTextStyle={Styles.placeHolderTextStyle}
-                      dropDownImageStyle={Styles.dropDownImageStyle}
-                      dropDownImage={require("../Asset/image/ic_drop_down.png")}
-                      selectedValue={(index, name) => this._selectedValue(index, name)}/>
+                  </View>
 
-                      { this.state.ErrorStatus == false ? (
-                                  <Text style={styles.errorMessage}>
-                                    * Please enter the text to proceed.
-                                  </Text>
-                                  ) : null  }
-              
-                  <TouchableOpacity onPress = {this.buttonClickListener}
-                      activeOpacity={0.7} style = {Styles.button}>
-                      <Text style ={Styles.buttonText}>Selanjutnya</Text>
-                  </TouchableOpacity>  
-              
-              <Text style = {{color:'#DCDCDC', alignSelf:'center',justifyContent:'flex-end', fontSize:12}}>
-                  2018 Khronos Education System
-              </Text>
-
-              </View>
-
-    </ScrollView> 
+            </ScrollView> 
      
     );
   }
 }
-
-const Styles = StyleSheet.create({
- 
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-
-  MainContainer: {
-    
-    alignItems: 'center',
-    flex: 1,
-    margin: 10
-  },
-
-  button: {
- 
-    width: '60%',
-    height: 45,
-    padding: 10,
-    backgroundColor: '#00BFFF',
-    borderRadius: 8,
-    marginTop: 30,
-    marginBottom:100,
-    alignItems:'center',
-  },
-
-  buttonText: {
-    color: '#fff',
-    textAlign: 'center',
-    justifyContent:'center'
-  },
- 
-  textStyle: {
-    color: '#C0C0C0',
-    textAlign: 'center',
-    fontSize: 15,
-    marginBottom:30,
-    marginTop:40,
-  },
-
-  searchBarContainerStyle: {
-    marginBottom: 10,
-    flexDirection: "row",
-    height: 40,
-    backgroundColor: "rgba(255,255,255,1)",
-    borderRadius: 10,
-    elevation: 3,
-    marginLeft: 10,
-    marginRight: 10
-  },
-
-  selectLabelTextStyle: {
-    color: "#000",
-    textAlign: "left",
-    width: "99%",
-    padding: 10,
-    flexDirection: "row"
-  },
-  placeHolderTextStyle: {
-    color: "#C0C0C0",
-    padding: 10,
-    textAlign: "left",
-    width: "95%",
-    flexDirection: "row"
-  },
-  dropDownImageStyle: {
-    marginLeft: 10,
-    width: 10,
-    height: 10,
-    alignSelf: "center"
-  },
-
-  pickerStyle: {
-    marginLeft: 18,
-    elevation:3,
-    paddingRight: 25,
-    marginRight: 10,
-    marginBottom: 2,
-    borderWidth:1,
-    backgroundColor: "rgba(255,255,255,1)",
-    borderRadius: 5,
-    flexDirection: "row"
-  },
-
-  errorMessage: {
-    fontSize: 20,
-    color:"red",
-    marginLeft:-80,
-  }
- 
-});

@@ -33,6 +33,7 @@ export default class HalamanProfil extends React.Component {
     return (
       <View style={styles.MainContainer}>
         <ScrollView
+          showsVerticalScrollIndicator={false}
           scrollEventThrottle={16}
           contentContainerStyle={{ paddingTop: Header_Maximum_Height }}
           onScroll={Animated.event([
@@ -62,14 +63,9 @@ export default class HalamanProfil extends React.Component {
           </TouchableOpacity>
 
         </ScrollView>
-        <Animated.View
-          style={[
-            styles.Header,
-            {
+        <Animated.View style={[styles.Header,{
               height: AnimateHeaderHeight,
-              backgroundColor: AnimateHeaderBackgroundColor,
-            },
-          ]}>
+              backgroundColor: AnimateHeaderBackgroundColor,},]}>
           <Text style={styles.HeaderInsideText}>
             Nama Siswa
           </Text>

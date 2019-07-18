@@ -128,7 +128,7 @@ export default class Penilaian extends React.Component {
             <View style={{alignItems:"center", justifyContent:'flex-start', marginTop:35}}>
                 <Image style={{width: 325, height: 175}}
                     resizeMode="contain"
-                    source={{ uri: 'https://brandmark.io/logo-rank/random/bp.png' }}/>
+                    source={require("../Asset/image/logo.png")}/>
             </View>
 
             <View style={styles.mainPicker}>

@@ -19,21 +19,21 @@ export default class Pesan extends React.Component {
 
                         <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('PesanMasuk');}} activeOpacity={0.5}>
                                 <Image
-                                    source={require("../Asset/image/hide.png")}
+                                    source={require("../Asset/image/gkes.png")}
                                     style={styles.ImageMenuButton}/> 
                                 <Text style={styles.TextMenuButton}> Pesan Masuk </Text>                      
                         </TouchableOpacity>
                         
                         <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('KirimPesan');}} activeOpacity={0.5}>
                             <Image
-                                source={require("../Asset/image/hide.png")}
+                                source={require("../Asset/image/gkes.png")}
                                 style={styles.ImageMenuButton}/>
                             <Text style={styles.TextMenuButton}> Kirim Pesan </Text>
                         </TouchableOpacity>
                         
                         <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('PesanTerkirim');}} activeOpacity={0.5}>
                             <Image
-                                source={require("../Asset/image/hide.png")}
+                                source={require("../Asset/image/gkes.png")}
                                 style={styles.ImageMenuButton}/>
                             <Text style={styles.TextMenuButton}> Pesan Terkirim </Text>
                         </TouchableOpacity>
@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderWidth: 0.5,
         borderColor: '#000',
-        height: 80,
-        width: 80,
+        height: 90,
+        width: 90,
         borderRadius: 8,
         margin: 15,
         justifyContent:'center',
@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
       ImageMenuButton: {
         padding: 10,
         margin: 5,
-        height: 35,
-        width: 35,
+        height: 45,
+        width: 45,
         alignSelf: 'center',
         color:'#000',
       },

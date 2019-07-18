@@ -26,15 +26,17 @@ export default class Dashboard extends React.Component {
                 {require("../Asset/image/background.jpg")}
                 style={styles.container}>
 
-                    <TouchableOpacity onPress = {() => {this.props.navigation.navigate('HalamanProfil');}} activeOpacity={0.9}>
+                    <View>
+                    <TouchableOpacity style={styles.ButtonProfil} onPress = {() => {this.props.navigation.navigate('HalamanProfil');}} activeOpacity={0.9}>
                         <Image
-                            source={{uri: 'https://aboutreact.com/wp-content/uploads/2018/07/logo.png',}}
+                           source={require("../Asset/image/gkes.png")}
                             //borderRadius style will help us make the Round Shape Image
                             style={styles.ProfilImage}
                             />
                     </TouchableOpacity>
+                    </View>
 
-                    <Text style={styles.text}>Nama Siswa</Text>
+                    <Text style={styles.text}>Nama Guru</Text>
                     
                     <IndicatorViewPager style={{ height: 325}} indicator={this._renderDotIndicator()}>
 
@@ -42,44 +44,44 @@ export default class Dashboard extends React.Component {
                         <View style = {{flexDirection:'row', justifyContent:'center'}}>
                             <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('Absensi');}} activeOpacity={0.5}>
                                 <Image
-                                    source={require("../Asset/image/hide.png")}
+                                    source={require("../Asset/image/gkes.png")}
                                     style={styles.ImageMenuButton}/>
                                 <Text style={styles.TextMenuButton}> Absensi </Text>
                             </TouchableOpacity>
                                 
                             <TouchableOpacity style={styles.MenuButton} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
                                 <Image
-                                    source={require("../Asset/image/hide.png")}
+                                    source={require("../Asset/image/gkes.png")}
                                     style={styles.ImageMenuButton}/>
                                 <Text style={styles.TextMenuButton}> Jadwal Mengajar </Text>
                             </TouchableOpacity>
                                 
                             <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('Agenda');}} activeOpacity={0.5}>
                                 <Image
-                                    source={require("../Asset/image/hide.png")}
+                                    source={require("../Asset/image/gkes.png")}
                                     style={styles.ImageMenuButton}/>
                                 <Text style={styles.TextMenuButton}> Agenda </Text>
                             </TouchableOpacity>
                         </View>
 
                         <View style = {{flexDirection:'row', justifyContent:'center', marginTop:-20}}>
-                            <TouchableOpacity style={styles.MenuButton} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
+                            <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('DaftarKegiatan');}} activeOpacity={0.5}>
                                 <Image
-                                    source={require("../Asset/image/hide.png")}
+                                    source={require("../Asset/image/gkes.png")}
                                     style={styles.ImageMenuButton}/>
                                 <Text style={styles.TextMenuButton}> Daftar Kegiatan </Text>
                             </TouchableOpacity>
                             
                             <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('Pesan');}} activeOpacity={0.5}>
                                 <Image
-                                    source={require("../Asset/image/hide.png")}
+                                    source={require("../Asset/image/gkes.png")}
                                     style={styles.ImageMenuButton}/>
                                 <Text style={styles.TextMenuButton}> Pesan </Text>
                             </TouchableOpacity>
                             
                             <TouchableOpacity style={styles.MenuButton} onPress = {() => {this.props.navigation.navigate('Penilaian');}} activeOpacity={0.5}>
                                 <Image
-                                    source={require("../Asset/image/hide.png")}
+                                    source={require("../Asset/image/gkes.png")}
                                     style={styles.ImageMenuButton}/>
                                 <Text style={styles.TextMenuButton}> Penilaian </Text>
                             </TouchableOpacity>
@@ -89,14 +91,14 @@ export default class Dashboard extends React.Component {
                         <View style = {{flexDirection:'row', marginTop:170}}>                               
                             <TouchableOpacity style={styles.MenuButton2} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
                                 <Image
-                                    source={require("../Asset/image/hide.png")}
+                                    source={require("../Asset/image/gkes.png")}
                                     style={styles.ImageMenuButton}/>
                                 <Text style={styles.TextMenuButton}> Kalender </Text>
                             </TouchableOpacity>
                             
                             <TouchableOpacity style={styles.MenuButton} onPress={this._toastWithDurationGravityHandler} activeOpacity={0.5}>
                                 <Image
-                                    source={require("../Asset/image/hide.png")}
+                                    source={require("../Asset/image/gkes.png")}
                                     style={styles.ImageMenuButton}/>
                                 <Text style={styles.TextMenuButton}> Silabus </Text>
                             </TouchableOpacity>
@@ -123,6 +125,14 @@ const styles = StyleSheet.create({
       },
 
       ProfilImage: {
+        width: 75,
+        height: 75,
+        borderRadius: 200/2,
+        justifyContent:'center',
+        alignSelf:'center',
+      },
+
+      ButtonProfil: {
         width: 75,
         height: 75,
         borderRadius: 200/2,
@@ -165,8 +175,8 @@ const styles = StyleSheet.create({
       ImageMenuButton: {
         padding: 10,
         margin: 5,
-        height: 35,
-        width: 35,
+        height: 50,
+        width: 50,
         alignItems: 'center',
         color:'#000',
         marginTop:20

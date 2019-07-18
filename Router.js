@@ -18,6 +18,7 @@ import EditProfile from './Screen/EditProfile';
 import GantiPassword from './Screen/GantiPassword';
 import Agenda from './Screen/Agenda';
 import Absensi from './Screen/Absensi';
+import DaftarKegiatan from './Screen/DaftarKegiatan';
 import spam from './Screen/spam';
 
 const Router = createStackNavigator({
@@ -39,6 +40,7 @@ const Router = createStackNavigator({
   GantiPassword: {screen: GantiPassword},
   Agenda: {screen: Agenda},
   Absensi: {screen: Absensi},
+  DaftarKegiatan: {screen: DaftarKegiatan},
   spam: {screen: spam},
 });
 

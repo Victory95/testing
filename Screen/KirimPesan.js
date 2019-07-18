@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, TextInput} from 'react-native'
 import { CustomPicker } from 'react-native-custom-picker'
 
 export default class KirimPesan extends React.Component {
@@ -271,6 +271,30 @@ export default class KirimPesan extends React.Component {
           optionTemplate={this.renderOption}
           headerTemplate={this.renderHeaderMapel}
         />
+
+        <View style={{marginTop:15}}>
+          <Text style={{color:'black', marginBottom:5}}>
+            Judul
+          </Text>
+
+          <TextInput style={styles.input}
+            placeholder=''
+            underlineColorAndroid='transparent'
+            placeholderTextColor='#C0C0C0'
+            keyboardType='email-address'/>
+        </View>
+
+        <View style={{marginTop:15}}>
+          <Text style={{color:'black', marginBottom:5}}>
+            Pesan
+          </Text>
+
+          <TextInput style={styles.input}
+            placeholder=''
+            underlineColorAndroid='transparent'
+            placeholderTextColor='#C0C0C0'
+            keyboardType='email-address'/>
+        </View>
       </View>
     )
   }
@@ -382,5 +406,15 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     marginRight: 10
+  },
+
+  input: {
+    borderWidth:1,
+    borderColor:'#00BFFF',
+    padding:5,
+    width:'100%',
+    borderRadius:5
+
+    
   }
 })
